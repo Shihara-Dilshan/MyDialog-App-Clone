@@ -30,14 +30,18 @@ const Stack = createStackNavigator();
 
 const HomeStackScreen = ({navigation}) => (
     <HomeStack.Navigator screenOptions={{
-        headerStyle: {backgroundColor: '#2e8b57'},
+        headerStyle: {backgroundColor: '#6a1b9a'},
         headerTintColor: '#fff',
         headerTitleStyle: {fontWeight: 'normal'},
     }}>
         <HomeStack.Screen name="Home" component={HomeScreen} options={{
-            title: 'Home',
-            headerLeft: () => (<Icon.Button name="ios-menu" size={25} backgroundColor="#2e8b57"
+            title: '814286648',
+            headerLeft: () => (<Icon.Button name="ios-menu" size={32} backgroundColor="#6a1b9a"
                                             onPress={() => navigation.openDrawer()}/>),
+            headerRight: () => (<View style={{flex: 1,flexDirection: 'row',alignItems: 'center'}}><Icon.Button name="ios-notifications" size={28} backgroundColor="#6a1b9a"
+                                            onPress={() => navigation.openDrawer()}/><Icon.Button name="apps" size={28} backgroundColor="#6a1b9a"
+                                            onPress={() => navigation.openDrawer()}/></View>),
+                                            
         }}/>
     </HomeStack.Navigator>
 );
@@ -110,7 +114,7 @@ const _retrieveData = async (key) => {
 
 export default function App() {
     StatusBar.setBarStyle('light-content', true);
-    StatusBar.setBackgroundColor('#fff');
+    StatusBar.setBackgroundColor('#ce93d8');
 
 
     const [isLoading, setIsLoading] = useState(true);
