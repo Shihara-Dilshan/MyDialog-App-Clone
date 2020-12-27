@@ -92,6 +92,7 @@ export default function HomeScreen({navigation}) {
   return (
     <View style={{flex: 1}}>
       <ScrollView>
+      
         <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
           <BrowseSlider />
           <View style={styles.container}>

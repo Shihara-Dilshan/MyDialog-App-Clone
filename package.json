@@ -40,6 +40,7 @@
     "react-native-settings-components": "0.0.2",
     "react-native-share": "^4.1.0",
     "react-native-snap-carousel": "^3.9.1",
+    "react-native-super-grid": "^4.0.3",
     "react-native-tab-view": "^2.15.2",
     "react-native-timeline-flatlist": "^0.7.3",
     "react-native-typography": "^1.4.1",

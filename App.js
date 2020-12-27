@@ -14,6 +14,8 @@ import {
 } from 'react-native-paper';
 
 import Profile from './Components/MainTabs/Profile';
+import ManageCon from './Components/MainTabs/ManageCon';
+import Support from './Components/MainTabs/Support';
 import Purchase from './Components/MainTabs/Purchase';
 import Settings from './Components/MainTabs/Settings';
 import Feedback from './Components/MainTabs/Feedback';
@@ -39,8 +41,8 @@ const HomeStackScreen = ({navigation}) => (
             headerLeft: () => (<Icon.Button name="ios-menu" size={32} backgroundColor="#6a1b9a"
                                             onPress={() => navigation.openDrawer()}/>),
             headerRight: () => (<View style={{flex: 1,flexDirection: 'row',alignItems: 'center'}}><Icon.Button name="ios-notifications" size={28} backgroundColor="#6a1b9a"
-                                            onPress={() => navigation.openDrawer()}/><Icon.Button name="apps" size={28} backgroundColor="#6a1b9a"
-                                            onPress={() => navigation.openDrawer()}/></View>),
+                                            onPress={() => {}}/><Icon.Button name="apps" size={28} backgroundColor="#6a1b9a"
+                                            onPress={() => {}}/></View>),
                                             
         }}/>
     </HomeStack.Navigator>
@@ -48,28 +50,34 @@ const HomeStackScreen = ({navigation}) => (
 
 const ProfileStackScreen = ({navigation}) => (
     <ProfileStack.Navigator screenOptions={{
-        headerStyle: {backgroundColor: '#2e8b57'},
+        headerStyle: {backgroundColor: '#6a1b9a'},
         headerTintColor: '#fff',
         headerTitleStyle: {fontWeight: 'normal'},
     }}>
-        <ProfileStack.Screen name="Profile" component={Profile} options={{
-            title: 'Profile',
-            headerLeft: () => (<Icon.Button name="ios-menu" size={25} backgroundColor="#2e8b57"
-                                            onPress={() => navigation.openDrawer()}/>),
+        <ProfileStack.Screen name="Profile" component={ManageCon} options={{
+            title: 'Manage connections',
+            headerLeft: () => (<Icon.Button name="arrow-back" size={25} backgroundColor="#6a1b9a"
+                                            onPress={() => navigation.navigate('Home')}/>),
+            headerRight: () => (<View style={{flex: 1,flexDirection: 'row',alignItems: 'center'}}><Icon.Button name="ios-notifications" size={28} backgroundColor="#6a1b9a"
+                                            onPress={() => {}}/><Icon.Button name="apps" size={28} backgroundColor="#6a1b9a"
+                                            onPress={() => {}}/></View>),
         }}/>
     </ProfileStack.Navigator>
 );
 
 const PurchaseStackScreen = ({navigation}) => (
     <PurchaseStack.Navigator screenOptions={{
-        headerStyle: {backgroundColor: '#2e8b57'},
+        headerStyle: {backgroundColor: '#6a1b9a'},
         headerTintColor: '#fff',
         headerTitleStyle: {fontWeight: 'normal'},
     }}>
-        <PurchaseStack.Screen name="Purchase" component={Purchase} options={{
-            title: 'Purchase',
-            headerLeft: () => (<Icon.Button name="ios-menu" size={25} backgroundColor="#2e8b57"
-                                            onPress={() => navigation.openDrawer()}/>),
+        <PurchaseStack.Screen name="Purchase" component={Support} options={{
+            title: 'Support',
+            headerLeft: () => (<Icon.Button name="arrow-back" size={25} backgroundColor="#6a1b9a"
+                                            onPress={() => navigation.navigate('Home')}/>),
+            headerRight: () => (<View style={{flex: 1,flexDirection: 'row',alignItems: 'center'}}><Icon.Button name="ios-notifications" size={28} backgroundColor="#6a1b9a"
+                                            onPress={() => {}}/><Icon.Button name="apps" size={28} backgroundColor="#6a1b9a"
+                                            onPress={() => {}}/></View>),
         }}/>
     </PurchaseStack.Navigator>
 );
