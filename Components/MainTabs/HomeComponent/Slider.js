@@ -14,7 +14,10 @@ class Slider extends React.Component {
         <Text style={{textAlign:'right'}}>GB</Text>
         <Slider2
           value={this.state.value}
-          onValueChange={value => this.setState({ value })}
+          onValueChange={value => {
+               this.setState({ value })
+               this.props.setvalue(Math.ceil((value*100/3)));
+            }}
           thumbTintColor="#ff9800"
           minimumTrackTintColor="#ff9800"
 

@@ -79,7 +79,7 @@ export function DrawerContent(props) {
                                 />
                             )}
                             label="Manage connections"
-                            onPress={() => {props.navigation.navigate('Profile')}}
+                            onPress={() => {props.navigation.navigate('ManageCon')}}
                         />
                         <DrawerItem
                             icon={({color, size}) => (

@@ -52,7 +52,7 @@ export default function DataAdOn({navigation}) {
         <Card>
         <View style={{marginTop: 0}}>
           <Text style={{color: '#ff9800', textAlign: 'center',fontSize: 45,marginBottom:5}}>
-            1 GB
+            {value} GB
           </Text>
           
         </View>
@@ -61,7 +61,7 @@ export default function DataAdOn({navigation}) {
             Anytime
           </Text>
         </View>
-        <Slider />
+        <Slider setvalue={setvalue}/>
          <View style={{marginTop: 0}}>
           <Text style={{color: '#ff9800', textAlign: 'center',fontSize: 15,marginBottom:5}}>
            

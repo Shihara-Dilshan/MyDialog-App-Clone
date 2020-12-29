@@ -14,6 +14,7 @@ import {
 } from 'react-native-paper';
 
 import Profile from './Components/MainTabs/Profile';
+import Notification from './Components/MainTabs/Notification';
 import ManageCon from './Components/MainTabs/ManageCon';
 import MyLoyalty from './Components/MainTabs/MyLoyalty';
 import Support from './Components/MainTabs/Support';
@@ -26,6 +27,7 @@ import SignupScreen from './Components/User/Signup';
 
 const Drawer = createDrawerNavigator();
 const HomeStack = createStackNavigator();
+const NotificationStack = createStackNavigator();
 const ProfileStack = createStackNavigator();
 const PurchaseStack = createStackNavigator();
 const HelpStack = createStackNavigator();
@@ -44,7 +46,24 @@ const HomeStackScreen = ({navigation}) => (
             headerLeft: () => (<Icon.Button name="ios-menu" size={32} backgroundColor="#6a1b9a"
                                             onPress={() => navigation.openDrawer()}/>),
             headerRight: () => (<View style={{flex: 1,flexDirection: 'row',alignItems: 'center'}}><Icon.Button name="ios-notifications" size={28} backgroundColor="#6a1b9a"
-                                            onPress={() => {}}/><Icon.Button name="apps" size={28} backgroundColor="#6a1b9a"
+                                            onPress={() => navigation.navigate('Notification')}/><Icon.Button name="apps" size={28} backgroundColor="#6a1b9a"
+                                            onPress={() => {}}/></View>),
+                                            
+        }}/>
+    </HomeStack.Navigator>
+);
+
+const NotificationStackScreen = ({navigation}) => (
+    <HomeStack.Navigator screenOptions={{
+        headerStyle: {backgroundColor: '#6a1b9a'},
+        headerTintColor: '#fff',
+        headerTitleStyle: {fontWeight: 'normal'},
+    }}>
+        <HomeStack.Screen name="Home" component={Notification} options={{
+            title: 'Notifications',
+            headerLeft: () => (<Icon.Button name="arrow-back" size={32} backgroundColor="#6a1b9a"
+                                            onPress={() => navigation.navigate('Home')}/>),
+            headerRight: () => (<View style={{flex: 1,flexDirection: 'row',alignItems: 'center'}}><Icon.Button name="ellipsis-vertical-sharp" size={28} backgroundColor="#6a1b9a"
                                             onPress={() => {}}/></View>),
                                             
         }}/>
@@ -57,8 +76,8 @@ const ProfileStackScreen = ({navigation}) => (
         headerTintColor: '#fff',
         headerTitleStyle: {fontWeight: 'normal'},
     }}>
-        <ProfileStack.Screen name="Profile" component={ManageCon} options={{
-            title: 'Manage connections',
+        <ProfileStack.Screen name="Profile" component={Profile} options={{
+            title: 'My profile',
             headerLeft: () => (<Icon.Button name="arrow-back" size={25} backgroundColor="#6a1b9a"
                                             onPress={() => navigation.navigate('Home')}/>),
             headerRight: () => (<View style={{flex: 1,flexDirection: 'row',alignItems: 'center'}}><Icon.Button name="ios-notifications" size={28} backgroundColor="#6a1b9a"
@@ -67,6 +86,24 @@ const ProfileStackScreen = ({navigation}) => (
         }}/>
     </ProfileStack.Navigator>
 );
+
+const ProfileStackScreen2 = ({navigation}) => (
+    <ProfileStack.Navigator screenOptions={{
+        headerStyle: {backgroundColor: '#6a1b9a'},
+        headerTintColor: '#fff',
+        headerTitleStyle: {fontWeight: 'normal'},
+    }}>
+        <ProfileStack.Screen name="Profile" component={ManageCon} options={{
+            title: 'Manage Connections',
+            headerLeft: () => (<Icon.Button name="arrow-back" size={25} backgroundColor="#6a1b9a"
+                                            onPress={() => navigation.navigate('Home')}/>),
+            headerRight: () => (<View style={{flex: 1,flexDirection: 'row',alignItems: 'center'}}><Icon.Button name="ios-notifications" size={28} backgroundColor="#6a1b9a"
+                                            onPress={() => {}}/><Icon.Button name="apps" size={28} backgroundColor="#6a1b9a"
+                                            onPress={() => {}}/></View>),
+        }}/>
+    </ProfileStack.Navigator>
+);
+
 
 const PurchaseStackScreen = ({navigation}) => (
     <PurchaseStack.Navigator screenOptions={{
@@ -169,9 +206,9 @@ export default function App() {
                     <Drawer.Screen name="Home" component={HomeStackScreen}/>
                     <Drawer.Screen name="Profile" component={ProfileStackScreen}/>
                     <Drawer.Screen name="Purchase" component={PurchaseStackScreen}/>
-                    <Drawer.Screen name="Settings" component={SettingsStackScreen}/>
+                    <Drawer.Screen name="ManageCon" component={ProfileStackScreen2}/>
                     <Drawer.Screen name="FeedBack" component={FeedBackStackScreen}/>
-
+	            <Drawer.Screen name="Notification" component={NotificationStackScreen}/>
                 </Drawer.Navigator>
             </NavigationContainer>
         </PaperProvider>);
