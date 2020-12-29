@@ -10,7 +10,11 @@ import * as Progress from 'react-native-progress';
 
 
 class DataGrapgh extends React.Component {
-    state = {  }
+    constructor(props){
+       super(props);
+       this.state={};
+    }
+
     render() { 
         return ( 
             <Card>
@@ -81,6 +85,7 @@ class DataGrapgh extends React.Component {
                 buttonStyle={{width: 140, backgroundColor: '#f50057'}}
                 title="DATA ADD-ON"
                 accessibilityLabel="Learn more about this purple button"
+                onPress={() => this.props.navigation.navigate('Profile')}
               />
             </View>
             <View style={{alignItems: 'center', marginTop: 20}}>

@@ -15,6 +15,7 @@ import {
 
 import Profile from './Components/MainTabs/Profile';
 import ManageCon from './Components/MainTabs/ManageCon';
+import MyLoyalty from './Components/MainTabs/MyLoyalty';
 import Support from './Components/MainTabs/Support';
 import Purchase from './Components/MainTabs/Purchase';
 import Settings from './Components/MainTabs/Settings';
@@ -85,14 +86,17 @@ const PurchaseStackScreen = ({navigation}) => (
 
 const SettingsStackScreen = ({navigation}) => (
     <HelpStack.Navigator screenOptions={{
-        headerStyle: {backgroundColor: '#2e8b57'},
+        headerStyle: {backgroundColor: '#6a1b9a'},
         headerTintColor: '#fff',
         headerTitleStyle: {fontWeight: 'normal'},
     }}>
-        <HelpStack.Screen name="Settings" component={Settings} options={{
-            title: 'Settings',
-            headerLeft: () => (<Icon.Button name="ios-menu" size={25} backgroundColor="#2e8b57"
-                                            onPress={() => navigation.openDrawer()}/>),
+        <HelpStack.Screen name="Settings" component={MyLoyalty} options={{
+            title: 'My Loyalty',
+            headerLeft: () => (<Icon.Button name="arrow-back" size={25} backgroundColor="#6a1b9a"
+                                            onPress={() => navigation.navigate('Home')}/>),
+            headerRight: () => (<View style={{flex: 1,flexDirection: 'row',alignItems: 'center'}}><Icon.Button name="ios-notifications" size={28} backgroundColor="#6a1b9a"
+                                            onPress={() => {}}/><Icon.Button name="apps" size={28} backgroundColor="#6a1b9a"
+                                            onPress={() => {}}/></View>),
         }}/>
     </HelpStack.Navigator>
 );
@@ -151,7 +155,7 @@ export default function App() {
 
     if (isLoading) {
         return (<LoadingScreen/>);
-    } else if (isLoggedIn) {
+    } else {
         return (<PaperProvider>
             <NavigationContainer>
                 <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
@@ -164,23 +168,7 @@ export default function App() {
                 </Drawer.Navigator>
             </NavigationContainer>
         </PaperProvider>);
-    } else {
-        return (
-            <NavigationContainer>
-                <Stack.Navigator screenOptions={{
-                    headerShown: false,
-                }}>
-                    <Stack.Screen
-                        name="LoginScreen"
-                        component={LoginScreen}
-                        options={{title: 'Welcome'}}
-                    />
-                    <Stack.Screen name="SignupScreen" component={SignupScreen}/>
-                </Stack.Navigator>
-            </NavigationContainer>
-
-        );
-    }
+    } 
 
 
 }

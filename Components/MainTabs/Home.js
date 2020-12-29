@@ -148,7 +148,7 @@ export default function HomeScreen({navigation}) {
         </View>
 
         {data_voice === 'data' ? (
-          <DataGrapgh />
+          <DataGrapgh navigation={navigation} />
         ) : (
           <VoicePackage />
         )}
