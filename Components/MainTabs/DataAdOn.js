@@ -11,6 +11,8 @@ import {
 import MyCarousel from './Carousel/MyCarousel';
 import BrowseSlider from '../BottomNavItems/BrowseSlider/BrowseSlider';
 import {SocialIcon, Card, ListItem, Button, Icon} from 'react-native-elements';
+import LinearGradient from 'react-native-linear-gradient';
+
 import OverlayViewer from './Overlay/Overlay';
 import * as Progress from 'react-native-progress';
 import {Divider} from 'react-native-elements';
@@ -35,9 +37,8 @@ const radio_props = [
  
 
 export default function DataAdOn({navigation}) {
-  const [data_voice, setData_voice] = useState('data');
+  const [data_voice, setData_voice] = useState('voice');
   const [value, setvalue] = useState(0);
-  
   
  
   return (
@@ -77,7 +78,7 @@ export default function DataAdOn({navigation}) {
   	  labelHorizontal={true}
           buttonColor={'#ff9800'}
           buttonSize={15}
-          labelStyle={{marginBottom: 20,backgroundColor: '#f5f5f5',}}
+          labelStyle={{marginBottom: 20,backgroundColor: '#f5f5f5'}}
           selectedButtonColor={'#ff9800'}
           animation={true}
          
@@ -89,7 +90,51 @@ export default function DataAdOn({navigation}) {
 
         
       </Card>
-        
+       
+          <View style={styles.container}>
+            <View
+              style={styles.button2}>
+              <TouchableOpacity
+                style={styles.signIn}
+                onPress={() => {
+                  setData_voice('data');
+                }}>
+                <Text
+                  style={styles.buttonText2}>
+                  Cancel
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <View style={{width: '5%'}}>
+              <TouchableOpacity style={styles.signIn} onPress={() => {}}>
+                <Text
+                  style={{
+                    color: '#fff',
+                  }}></Text>
+              </TouchableOpacity>
+            </View>
+             <LinearGradient
+                    colors={['#ffa726', '#f44336']}
+                    style={styles.button}
+                >
+            <View
+              style={styles.button}>
+              <TouchableOpacity
+                
+                onPress={() => {
+                  setData_voice('voice');
+                }}>
+                
+                <Text
+                  style={styles.buttonText1}>
+                  Active
+                </Text>
+                
+              </TouchableOpacity>
+            </View>
+            </LinearGradient>
+          </View>
+       
         <View><Text></Text></View>
         
       </ScrollView>
@@ -105,5 +150,51 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+   container: {
+    flex: 1,
+    flexDirection: 'row',
+    marginTop: 10,
+    justifyContent: 'center',
+  },
+  data2: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 20
+  },
+  buttonText1: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 18,
+  },
+  buttonText2: {
+    color: '#f44336',
+    fontWeight: 'bold',
+    fontSize: 18,
+  },
+  data: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  button: {
+   
+    width: '43%',
+    height: 40,
+    borderRadius: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  button2: {
+    backgroundColor: '#fff',
+    width: '43%',
+    height: 40,
+    borderRadius: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  
+  
 });
 
