@@ -85,7 +85,7 @@ class DataGrapgh extends React.Component {
                 buttonStyle={{width: 140, backgroundColor: '#f50057'}}
                 title="DATA ADD-ON"
                 accessibilityLabel="Learn more about this purple button"
-                onPress={() => this.props.navigation.navigate('Profile')}
+                onPress={() => this.props.navigation.navigate('FeedBack')}
               />
             </View>
             <View style={{alignItems: 'center', marginTop: 20}}>

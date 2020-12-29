@@ -20,6 +20,7 @@ import Support from './Components/MainTabs/Support';
 import Purchase from './Components/MainTabs/Purchase';
 import Settings from './Components/MainTabs/Settings';
 import Feedback from './Components/MainTabs/Feedback';
+import DataAdOn from './Components/MainTabs/DataAdOn';
 import LoginScreen from './Components/User/Login';
 import SignupScreen from './Components/User/Signup';
 
@@ -29,6 +30,7 @@ const ProfileStack = createStackNavigator();
 const PurchaseStack = createStackNavigator();
 const HelpStack = createStackNavigator();
 const LocateStack = createStackNavigator();
+const DataAdOnStack = createStackNavigator();
 const Stack = createStackNavigator();
 
 const HomeStackScreen = ({navigation}) => (
@@ -103,17 +105,22 @@ const SettingsStackScreen = ({navigation}) => (
 
 const FeedBackStackScreen = ({navigation}) => (
     <LocateStack.Navigator screenOptions={{
-        headerStyle: {backgroundColor: '#2e8b57'},
+        headerStyle: {backgroundColor: '#6a1b9a'},
         headerTintColor: '#fff',
         headerTitleStyle: {fontWeight: 'normal'},
     }}>
-        <LocateStack.Screen name="Feedback" component={Feedback} options={{
-            title: 'Feedback',
-            headerLeft: () => (<Icon.Button name="ios-menu" size={25} backgroundColor="#2e8b57"
-                                            onPress={() => navigation.openDrawer()}/>),
+        <LocateStack.Screen name="Feedback" component={DataAdOn} options={{
+            title: 'Data Add-On',
+            headerLeft: () => (<Icon.Button name="arrow-back" size={25} backgroundColor="#6a1b9a"
+                                            onPress={() => navigation.navigate('Home')}/>),
+            headerRight: () => (<View style={{flex: 1,flexDirection: 'row',alignItems: 'center'}}><Icon.Button name="ios-notifications" size={28} backgroundColor="#6a1b9a"
+                                            onPress={() => {}}/><Icon.Button name="apps" size={28} backgroundColor="#6a1b9a"
+                                            onPress={() => {}}/></View>),   
         }}/>
     </LocateStack.Navigator>
 );
+
+
 
 const _retrieveData = async (key) => {
     try {
