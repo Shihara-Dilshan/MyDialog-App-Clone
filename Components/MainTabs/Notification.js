@@ -23,6 +23,7 @@ import LoyalPoint from "./HomeComponent/LoyalPoint";
 import PackageDetail from "./HomeComponent/PackageDetail";
 import FooterCard from "./HomeComponent/FooterCard";
 import QrCard from "./HomeComponent/QrCard";
+import Item from "./HomeComponent/Item";
 
 export default function Notification({navigation}) {
   const [data_voice, setData_voice] = useState('data');
@@ -39,9 +40,7 @@ export default function Notification({navigation}) {
 
   return (
     <View style={{flex: 1}}>
-      <ScrollView>
-      
-        
+     
 
         
 
@@ -49,9 +48,9 @@ export default function Notification({navigation}) {
       
         <View><Text style={{fontWeight: "bold",padding: 20, fontSize: 18}}>Aug 28</Text></View>
         <Divider />
-        
-      </ScrollView>
-      
+        <Item />
+         <Divider />
+    
     </View>
   );
 }
