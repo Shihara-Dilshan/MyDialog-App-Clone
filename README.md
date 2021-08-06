@@ -1,5 +1,7 @@
 # My Dialog App Clone
 
+My Dialog app clone built with React Native
+
 ![visitors](https://visitor-badge.glitch.me/badge?page_id=mydialogappclone)
 
 <div align="center">
